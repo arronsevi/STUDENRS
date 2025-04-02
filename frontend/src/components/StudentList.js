@@ -2,16 +2,16 @@ import React from "react";
 
 const StudentList = ({ students, deleteStudent }) => {
   return (
-    <div className="card p-4 shadow-lg rounded border-0 bg-black text-light">
-      <h2 className="text-center text-primary">Student List</h2>
-      <ul className="list-group">
+    <div className="list-container">
+      <h2>Student List</h2>
+      <ul className="student-list">
         {students.length === 0 ? (
-          <p className="text-center text-light">No students added yet.</p>
+          <p>No students added yet.</p>
         ) : (
           students.map((student) => (
-            <li key={student.id} className="list-group-item d-flex justify-content-between align-items-center bg-dark text-white border-secondary">
+            <li key={student.id} className="student-item">
               <span>{student.name} - {student.course}</span>
-              <button className="btn btn-danger btn-sm" onClick={() => deleteStudent(student.id)}>Delete</button>
+              <button className="delete-btn" onClick={() => deleteStudent(student.id)}>Delete</button>
             </li>
           ))
         )}
